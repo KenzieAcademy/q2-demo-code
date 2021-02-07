@@ -1,15 +1,15 @@
 // Example with creating promises
 
-const p = new Promise((resolve, reject) => {
-    reject()
-})
+// const p = new Promise((resolve, reject) => {
+//     resolve()
+// })
 
-p.then(() => {
-    console.log('It worked!')
-})
-p.catch((err) => {
-    console.error('It failed!', err)
-})
+// p.then(() => {
+//     console.log('It worked!')
+// })
+// p.catch((err) => {
+//     console.error('It failed!', err)
+// })
 
 
 

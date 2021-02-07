@@ -1,18 +1,18 @@
-let name = 'Gwen';
-let level = 5;
+// let name = 'Gwen';
+// let level = 5;
 
-function printDetails(details) {
-    const { name, level } = details;
-    setTimeout(() => {
-        console.log(`${name} is level ${level}`);
-    }, 5000)
-}
+// function printDetails(details) {
+//     const { name, level } = details;
+//     setTimeout(() => {
+//         console.log(`${name} is level ${level}`);
+//     }, 5000)
+// }
 
-console.log(`Why is ${name} at level ${level}???`);
+// console.log(`Why is ${name} at level ${level}???`);
 
-printDetails({ name, level });
+// printDetails({ name, level });
 
-console.log(`Hello, ${name}!`)
+// console.log(`Hello, ${name}!`)
 
 /////
 // Part 2
@@ -40,7 +40,7 @@ console.log(`Hello, ${name}!`)
 // printDetails({ name, level });
 
 // setTimeout(() => {
-// console.log(`Hello, ${name}!`)
+//     console.log(`Hello, ${name}!`)
 // }, getRandomTime())
 
 
