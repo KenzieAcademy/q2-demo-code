@@ -95,4 +95,14 @@ for (let index = 0; index < tasks.length; index += 1) {
 }
 
 // THE SOME PATTERN:
+let someItemMeetsCondition = true
+for (let index = 0; index < tasks.length; index += 1) {
+    let task = tasks[index]
 
+    if (task.urgent === true) {
+        someItemMeetsCondition = true
+        break
+    } else {
+        continue
+    }
+}
