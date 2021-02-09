@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>React Demo</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    </head>
-    <body>
-        <div id="root">Temporary Text</div>
+  <head>
+    <title>React Demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="root">Temporary Text</div>
 
-        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-        <script type="text/babel" src="header.js"></script>
-        <script type="text/babel" src="footer.js"></script>
-        <script type="text/babel" src="body.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="header.js"></script>
+    <script type="text/babel" src="footer.js"></script>
+    <script type="text/babel" src="body.js"></script>
+    <script type="text/babel" src="app.js"></script>
 
-        <script type="text/babel">
-            class App extends React.Component {
-                render() {
-                    return (
-                        <div>
-                            <Header name="Luke Skywalker" />
-                            <Body />
-                            <Footer />
-                        </div>
-                    )
-                }
-            }
-
-            ReactDOM.render(<App />, document.getElementById('root'))
-        </script>
-    </body>
+    <script type="text/babel">
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
 </html>
