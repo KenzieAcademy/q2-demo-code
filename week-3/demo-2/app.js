@@ -7,7 +7,7 @@ function App(props) {
 function Todos(props) {
   const [todos, setTodos] = useState([]);
 
-  const whateverIWant = (e) => {
+  const clickHandler = (e) => {
     setTodos(todos => [...todos, "Next Todo"]);
   };
 
@@ -23,7 +23,7 @@ function Todos(props) {
   return (
     <>
       Hello world
-      <button onClick={whateverIWant}>Click Me</button>
+      <button onClick={clickHandler}>Click Me</button>
       {todos.map((todo) => {
         return (
           <div key={todo.id}>
