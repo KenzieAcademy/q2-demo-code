@@ -1,7 +1,5 @@
 const { useState, useEffect } = React;
 
-// console.log(useState)
-
 function App(props) {
   return <Todos />;
 }
@@ -9,8 +7,8 @@ function App(props) {
 function Todos(props) {
   const [todos, setTodos] = useState([]);
 
-  const whateverIWant = (e) => {
-    setTodos([...todos, "Next Todo"]);
+  const clickHandler = (e) => {
+    setTodos(todos => [...todos, "Next Todo"]);
   };
 
   useEffect(() => {
@@ -25,15 +23,15 @@ function Todos(props) {
   return (
     <>
       Hello world
-      <button onClick={whateverIWant}>Click Me</button>
+      <button onClick={clickHandler}>Click Me</button>
       {todos.map((todo) => {
-          return (
-            <div key={todo.id}>
-              <h1>Todo Title: {todo.title}</h1>
-              <h2>Todo Body: {todo.body}</h2>
-            </div>
-          );
-        })}
+        return (
+          <div key={todo.id}>
+            <h1>Todo Title: {todo.title}</h1>
+            <h2>Todo Body: {todo.body}</h2>
+          </div>
+        );
+      })}
     </>
   );
 }
