@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
 import Home from "./views/Home";
+import Store from "./views/Store";
+import StoreItem from "./views/StoreItem";
 import Intermediate from "./views/Intermediate";
 import Advanced from "./views/Advanced";
 import NotFound from "./views/NotFound";
@@ -24,6 +26,13 @@ function App() {
         <Route
           path="/advanced/:name"
           render={(props) => <Advanced {...props} />}
+        />
+        <Route exact path="/store">
+          <Store />
+        </Route>
+        <Route
+          path="/store/:id"
+          render={(props) => <StoreItem {...props} />}
         />
         <Route path="*" component={NotFound} />
       </Switch>
