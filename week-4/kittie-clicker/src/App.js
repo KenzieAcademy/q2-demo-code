@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
-import Home from "./screens/Home";
-import Intermediate from "./screens/Intermediate";
-import Advanced from "./screens/Advanced";
-import NotFound from "./screens/NotFound";
+import Home from "./views/Home";
+import Intermediate from "./views/Intermediate";
+import Advanced from "./views/Advanced";
+import NotFound from "./views/NotFound";
 import "./styles/App.css";
 
 function App() {
