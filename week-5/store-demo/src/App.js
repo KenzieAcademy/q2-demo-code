@@ -1,16 +1,19 @@
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from './views/Home';
+import Store from './views/Store';
+import TopNav from './components/TopNav'
 
 function App() {
   return (
     <div>
+      <TopNav />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        {/* <Route path="/store">
+        <Route path="/store">
           <Store />
-        </Route> */}
+        </Route>
         {/* <Route path="/cart">
           <Cart />
         </Route> */}
