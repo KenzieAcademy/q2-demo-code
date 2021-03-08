@@ -1,4 +1,4 @@
-import Toggle from './components/Toggle'
+// import Toggle from './components/Toggle'
 import StopLight from './components/StopLight'
 
 import './assets/App.css';
@@ -6,7 +6,7 @@ import './assets/App.css';
 function App() {
   return (
     <div className="App">
-      <Toggle />
+      {/* <Toggle /> */}
       <StopLight />
     </div>
   );
