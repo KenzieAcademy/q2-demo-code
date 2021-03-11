@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { Card } from 'react-bootstrap';
 
-import user from '../data/user';
+import { UserContext } from '../UserContextProvider';
 
 function Dashboard() {
+  const user = useContext(UserContext);
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>

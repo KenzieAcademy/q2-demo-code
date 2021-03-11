@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
-import user from '../data/user';
+import { UserContext } from '../UserContextProvider';
 
 function TopNav() {
+  const user = useContext(UserContext);
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>{ user.name }' App</Navbar.Brand>
