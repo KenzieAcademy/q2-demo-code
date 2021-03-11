@@ -3,7 +3,7 @@ import UserInfo from '../components/UserInfo';
 function Dashboard() {
   return (
     <div>
-      Dashboard
+      <h1>Dashboard</h1>
       <UserInfo />
     </div>
   );

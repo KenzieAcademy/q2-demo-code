@@ -3,7 +3,7 @@ import UserSettings from '../components/UserSettings';
 function Settings() {
   return (
     <div>
-      Settings
+      <h1>Settings</h1>
       <UserSettings />
     </div>
   );
