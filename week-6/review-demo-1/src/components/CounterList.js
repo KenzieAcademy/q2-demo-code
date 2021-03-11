@@ -6,7 +6,6 @@ export default function CounterList(props) {
       <Counter
         count={counterObj.count}
         color={counterObj.color}
-        dispatch={props.dispatch}
         key={index}
         id={index}
       />
