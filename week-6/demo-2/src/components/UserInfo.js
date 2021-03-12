@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { Card } from 'react-bootstrap';
 
-import { UserContext } from '../UserContextProvider';
+import { useStore } from '../store/reduxLikeStore';
 
 function Dashboard() {
-  const user = useContext(UserContext);
+  const user = useStore(state => state.user)
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>

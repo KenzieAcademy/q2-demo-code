@@ -1,10 +1,11 @@
-import { useContext } from 'react';
 import { Card } from 'react-bootstrap';
 
-import { UserContext } from '../UserContextProvider';
+import { types, useStore } from '../store/reduxLikeStore';
 
 function Dashboard() {
-  const user = useContext(UserContext);
+  const user = useStore(state => state.user)
+  const dispatch = useStore(state => state.dispatch)
+
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
@@ -15,6 +16,10 @@ function Dashboard() {
           <p>Notifications: { user.notifications }</p>
           <p>Favorite Color: { user.favoriteColor }</p>
           <p>What do I do?: { user.statement }</p>
+
+          <button onClick={() => dispatch({ type: types.setName, newName: 'Pete' })}>
+            Update Name
+          </button>
         </Card.Text>
       </Card.Body>
     </Card>

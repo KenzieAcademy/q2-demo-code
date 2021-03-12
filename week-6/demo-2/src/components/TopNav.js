@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
-import { UserContext } from '../UserContextProvider';
+import { useStore } from '../store/reduxLikeStore';
 
 function TopNav() {
-  const user = useContext(UserContext);
+  const user = useStore(state => state.user)
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>{ user.name }' App</Navbar.Brand>
