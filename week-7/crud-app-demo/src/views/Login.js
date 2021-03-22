@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { loginRequest } from "../fetchRequests";
 
 import { LOGIN, useStore } from "../store";
@@ -24,6 +24,21 @@ function Login(props){
     setFormData((state) => ({ ...state, [inputName]: inputValue }));
   };
 
+  useEffect(()=>{
+      window.addEventListener('message', handleMessage)
+      return ()=>{
+          window.removeEventListener('message', handleMessage)
+      }
+  }, [])
+
+  function handleMessage(event){
+    console.log(event)
+  }
+
+  function handleGoogleLogin(e){
+    window.open("https://socialapp-api.herokuapp.com/auth/google/login")
+  }
+
   return (
     <>
       <form id="login-form" onSubmit={handleLogin}>
@@ -46,6 +61,8 @@ function Login(props){
         />
         <button type="submit">Login</button>
       </form>
+
+      <button onClick={handleGoogleLogin}>google login</button>
     </>
   );
 };
