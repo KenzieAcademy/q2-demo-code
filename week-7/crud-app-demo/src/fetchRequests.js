@@ -38,3 +38,16 @@ export const patchUser = (token, username, newUserInfo) => {
     body: JSON.stringify(newUserInfo),
   }).then((res) => res.json());
 }
+
+export const putUserPicture = (token, username, pictureData) => {
+    let formData = new FormData()
+    formData.append("picture", pictureData)
+    return fetch(baseURL + `users/${username}/picture`, {
+      method: "PUT",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type":"multipart/form-data"
+      },
+      body: formData,
+    }).then((res) => res.json());
+  }
