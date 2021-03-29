@@ -2,12 +2,54 @@
 <html>
     <head>
         <title>Vue 3 Basics</title>
+        <style>
+            #app {
+                margin: 40px;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
-            Default text
+            <div>{{ num }}</div>
+            <button @click="increment">Increment</button>
+
+            <hr />
+
+            <div>{{ name }}</div>
+            <input v-model="name" />
+
+            <hr />
+
+            <div>{{ time }}</div>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        num: 0,
+                        name: '',
+                        time: 0,
+                        timer: {}
+                    }
+                },
+                methods: {
+                    increment() {
+                        this.num += 1
+                    }
+                },
+                mounted() {
+                    this.timer = setInterval(() => {
+                        this.time++
+                    }, 1000)
+                },
+                destroy() {
+                    clearInterval(this.timer)
+                }
+            })
+
+            app.mount('#app')
+        </script>
     </body>
 </html>
