@@ -8,8 +8,7 @@ export const loginRequest = (username, password) => {
       username,
       password,
     }),
-  })
-    .then((res) => res.json())
+  }).then((res) => res.json());
 };
 
 export const logoutRequest = (token) => {
@@ -19,35 +18,32 @@ export const logoutRequest = (token) => {
 };
 
 export const getUsers = () => {
-  return fetch(baseURL + 'users')
-    .then((res) => res.json());
-}
+  return fetch(baseURL + "users").then((res) => res.json());
+};
 
 export const getUser = (username) => {
-  return fetch(baseURL + `users/${username}`)
-    .then((res) => res.json());
-}
+  return fetch(baseURL + `users/${username}`).then((res) => res.json());
+};
 
 export const patchUser = (token, username, newUserInfo) => {
   return fetch(baseURL + `users/${username}`, {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + token,
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(newUserInfo),
   }).then((res) => res.json());
-}
+};
 
 export const putUserPicture = (token, username, pictureData) => {
-    let formData = new FormData()
-    formData.append("picture", pictureData)
-    return fetch(baseURL + `users/${username}/picture`, {
-      method: "PUT",
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type":"multipart/form-data"
-      },
-      body: formData,
-    }).then((res) => res.json());
-  }
+  let formData = new FormData();
+  formData.append("picture", pictureData);
+  return fetch(baseURL + `users/${username}/picture`, {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+    body: formData,
+  }).then((res) => res.json());
+};

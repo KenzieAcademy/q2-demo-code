@@ -3,8 +3,9 @@ import { loginRequest } from "../fetchRequests";
 
 import { LOGIN, useStore } from "../store";
 
-function Login(props){
+function Login(props) {
   const dispatch = useStore((state) => state.dispatch);
+  const user = useStore((state) => state.user);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -24,19 +25,34 @@ function Login(props){
     setFormData((state) => ({ ...state, [inputName]: inputValue }));
   };
 
-  useEffect(()=>{
-      window.addEventListener('message', handleMessage)
-      return ()=>{
-          window.removeEventListener('message', handleMessage)
+  //   useEffect(() => {
+  //     window.addEventListener("message", handleMessage);
+  //     return () => {
+  //       window.removeEventListener("message", handleMessage);
+  //     };
+  //   }, []);
+
+  //   function handleMessage(event) {
+  //     console.log(event);
+  //   }
+
+  function handleGoogleLogin(e) {
+    const googleWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank",
+      "width=500,height=500"
+    );
+    googleWindow.window.opener.onmessage = (event) => {
+      //   googleWindow.close();
+      console.log(event);
+      if (!event || !event.data || !event.data.token) {
+        // google login failure, dispatch an action here
+        alert("Please log in to your Google account first");
+        console.log("something happened");
+        return;
       }
-  }, [])
-
-  function handleMessage(event){
-    console.log(event)
-  }
-
-  function handleGoogleLogin(e){
-    window.open("https://socialapp-api.herokuapp.com/auth/google/login")
+      dispatch({ type: LOGIN, payload: event.data });
+    };
   }
 
   return (
@@ -65,6 +81,6 @@ function Login(props){
       <button onClick={handleGoogleLogin}>google login</button>
     </>
   );
-};
+}
 
 export default Login;

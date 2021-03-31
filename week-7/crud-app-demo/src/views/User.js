@@ -31,11 +31,7 @@ function User({ match }) {
   }
 
   function handleSubmitPhoto(event) {
-    putUserPicture(
-      authUser.token,
-      authUser.username,
-      picture
-    ).then((response) => console.log(response));
+    putUserPicture(authUser.token, authUser.username, picture);
   }
 
   return (
@@ -74,7 +70,7 @@ function User({ match }) {
         onChange={(event) => setPicture(event.target.files[0])}
       />
       <button onClick={handleSubmitPhoto}>update my photo</button>
-      <img src={"https://socialapp-api.herokuapp.com"+user.pictureLocation} />
+      <img src={"https://socialapp-api.herokuapp.com" + user.pictureLocation} />
     </Container>
   );
 }
