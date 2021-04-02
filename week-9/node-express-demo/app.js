@@ -5,9 +5,14 @@ const port = 3000;
 
 const db = {
   urls: [
-    { original: "testing", domain: "Testing", short: "test", id: nanoid() },
+    { original: "testing", domain: "Testing", short: "test", id: nanoid(), isAdmin: true },
+    { original: "zebra", domain: "zebra.com", short: "zebra", id: nanoid(), isAdmin: false },
+    { original: "duckduckgo", domain: "duckduckgo", short: "duck", id: nanoid(), isAdmin: true },
+    { original: "bobross", domain: "bobross", short: "bobross", id: nanoid(), isAdmin: true },
   ],
 };
+
+// duckduckgo.com/urls?name=bobross&occupation=painter
 
 // middleware
 app.use(express.json());
@@ -17,8 +22,39 @@ app.get("/", (req, res) => {
   res.send("hello from express");
 });
 
+app.get("/test", (req, res) => {
+  res.send(req.query)
+})
+
 app.get("/urls", (req, res) => {
-  res.json(db);
+  const { search, sortby, filterby } = req.query
+
+  let urls = db.urls
+  if (search) {
+    urls = urls.filter((url) => {
+      return url.original.includes(search)
+    })
+  }
+
+  if (filterby) {
+    urls = urls.filter((url) => {
+      return url[filterby] // url.isadmin
+    })
+  }
+
+  if (sortby) {
+    // sortby = 'domain'
+    urls = urls.sort((a, b) => {
+      const x = a[sortby].toLowerCase() < b[sortby].toLowerCase() 
+      if (x) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+  }
+  
+  res.json(urls);
 });
 
 app.get("/urls/:id", (req, res) => {
